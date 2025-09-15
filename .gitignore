@@ -1,0 +1,20 @@
+
+# Thư mục chứa các file history của extension
+.history/
+.specstory/
+# Thư mục Node.js
+node_modules/
+
+# Thư mục build và cache của Next.js
+.next/
+out/
+
+# Các file môi trường (không nên đẩy lên)
+.env
+.env.local
+.env.production
+.env.development
+
+# Các file khác
+*.log
+.DS_Store
