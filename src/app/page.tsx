@@ -1,16 +1,13 @@
 import Link from 'next/link'
 import Counter from '../components/Counter'
+import ClientHello from '../components/ClientHello'
 
 // Server component: gọi API public tại thời điểm render (server-side)
 async function getDemoData() {
-  // ví dụ fetch từ API công khai
-  try {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts/1')
-    if (!res.ok) return null
-    return res.json()
-  } catch (_e: unknown) {
-    return null
-  }
+  // dùng internal API để dễ quan sát timestamp và demo ISR
+  const res = await fetch('/api/hello', { next: { revalidate: 10 } })
+  if (!res.ok) return null
+  return res.json()
 }
 
 export default async function Home() {
@@ -33,7 +30,8 @@ export default async function Home() {
         <Link href="/api/hello" className="text-blue-600 underline">API: /api/hello</Link>
       </nav>
 
-      <Counter />
+    <Counter />
+    <ClientHello />
     </main>
   )
 }
