@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Counter from '../components/Counter'
 import ClientHello from '../components/ClientHello'
+import ClientProxyDemo from '../components/ClientProxyDemo'
+import ClientLogin from '../components/ClientLogin'
 import { getHelloData } from '../lib/hello'
 
 // Server component: gọi API public tại thời điểm render (server-side)
@@ -41,6 +43,8 @@ export default async function Home() {
 
     <Counter />
     <ClientHello />
+    <ClientProxyDemo />
+    <ClientLogin />
     </main>
   )
 }
